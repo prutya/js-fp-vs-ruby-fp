@@ -1,0 +1,13 @@
+TargetRubyVersion: 2.6.2
+
+Layout/MultilineBlockLayout:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+Style/LambdaCall:
+  EnforcedStyle: braces

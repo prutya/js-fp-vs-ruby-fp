@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 map = ->(cb) { ->(arr) { arr.map(&cb) } }
 double = ->(x) { x * 2 }
 

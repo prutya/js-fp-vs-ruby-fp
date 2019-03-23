@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 with_count = ->(fn) {
   count = 0
 

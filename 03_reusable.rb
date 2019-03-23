@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'net/https'
 require 'uri'
 require 'json'
@@ -16,7 +18,9 @@ get_from_api = ->(base_url) {
         request = Net::HTTP::Get.new(uri.request_uri)
         response = http.request(request)
 
-        callback.call(JSON.parse(response.body))
+        hash = JSON.parse(response.body)
+
+        callback.(hash)
       rescue StandardError => e
         puts e.message
       end
