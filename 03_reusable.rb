@@ -29,5 +29,10 @@ get_github = get_from_api.('https://api.github.com')
 get_github_users = get_github.('/users')
 get_github_repos = get_github.('/repositories')
 
-puts get_github_users.(->(data) { data.map { |u| u['login'] } })
-puts get_github_users.(->(data) { data.map { |u| u['avatar_url'] } })
+prop = ->(key) { ->(hash) { hash[key] } }
+
+prop_login      = prop.('login')
+prop_avatar_url = prop.('avatar_url')
+
+puts get_github_users.(->(data) { data.map(&prop_login) })
+puts get_github_users.(->(data) { data.map(&prop_avatar_url) })

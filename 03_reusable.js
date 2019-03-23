@@ -13,10 +13,13 @@ const getGithub = getFromApi('https://api.github.com')
 const getGithubUsers = getGithub('/users')
 const getGithubRepos = getGithub('/repositories')
 
-getGithubUsers(data => {
-  console.log(data.map(user => user.login))
-})
+const prop = key => obj => obj[key]
+
+const propLogin     = prop('login')
+const propAvatarUrl = prop('avatar_url')
 
 getGithubUsers(data => {
-  console.log(data.map(user => user.avatar_url))
+  console.log(data.map(propLogin))
 })
+
+getGithubUsers(data => console.log(data.map(propAvatarUrl)))

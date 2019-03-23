@@ -1,5 +1,5 @@
-const array = [1, 2, 3]
-
+const map = cb => array => array.map(cb)
 const double = x => x * 2
 
-console.log(array.map(double))
+const array = [1, 2, 3]
+console.log(map(double)(array))

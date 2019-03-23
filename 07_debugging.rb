@@ -4,7 +4,7 @@ compose = ->(*fns) { ->(x) {
 
 split    = ->(char) { ->(str) { str.split(char) } }
 downcase = ->(str) { str.downcase }
-map      = ->(cb) { ->(array) { array.map { |x| cb.(x) } } }
+map      = ->(cb) { ->(array) { array.map(&cb) } }
 join     = ->(char) { ->(array) { array.join(char) } }
 trace    = ->(msg) { ->(x) { puts "#{msg} #{x}"; x } }
 
