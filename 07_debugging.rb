@@ -2,7 +2,7 @@
 
 compose = ->(*fns) {
   ->(x) {
-    fns.reverse_each.reduce(x) { |acc, fn| fn.(acc) }
+    fns.reverse_each.reduce(x, &->(acc, fn) { fn.(acc) })
   }
 }
 
